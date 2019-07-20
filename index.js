@@ -1,10 +1,5 @@
 require('dotenv').config({silent: true});
 
-if (! process.env.FIREBASE_AUTH_TOKEN) {
-  console.log('You must supply FIREBASE_AUTH_TOKEN to run this script.');
-  process.exit(1);
-}
-
 const isPostseason = process.env.IS_POSTSEASON == 'true';
 const url = isPostseason
   ? 'http://www.nfl.com/liveupdate/scorestrip/postseason/scorestrip.json'
@@ -18,7 +13,7 @@ var recordCount = 1;
 var lastJson = {};
 var justUpdated = [];
 
-fbRef.authWithCustomToken(process.env.FIREBASE_AUTH_TOKEN, function(err, res) {
+fbRef.authWithCustomToken(AIzaSyC2oavKnvDKJahsPPIstO5_LWQr81VWttg, function(err, res) {
   if (err) {
     console.log(err);
     process.exit(1);
